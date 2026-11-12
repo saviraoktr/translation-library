@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Translation Library</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="app-shell">
+
+            <!-- TOP NAVIGATION -->
+            <header class="topbar">
+                <a href="#pageIntro" class="brand">
+                    <span class="brand-name">LINGUA</span>
+                </a>
+            </header>
+
+            <main class="app-container">
+
+                <!-- PAGE INTRODUCTION -->
+                <section class="page-intro" id="pageIntro">
+                    <div class="intro-copy">
+                        <span class="eyebrow">LANGUAGE MANAGEMENT</span>
+                        <h1>Translation Library</h1>
+                        <p>
+                            A personal space to collect, organize, and manage
+                            your multilingual vocabulary.
+                        </p>
+                    </div>
+
+                    <div class="intro-index">
+                        <span class="index-label">YOUR COLLECTION</span>
+                        <span class="index-number" id="collectionCount">00</span>
+                    </div>
+                </section>
+
+                <!-- MAIN WORKSPACE -->
+                <div class="workspace-layout">
+
+                    <!-- ADD PHRASE PANEL -->
+                    <aside class="entry-panel" id="addPhrase">
+                        <div class="panel-heading">
+                            <span class="section-number">01 / ENTRY</span>
+                            <h2>Add a new phrase</h2>
+                            <p>Enter a phrase and its translations.</p>
+                        </div>
+
+                        <form id="translationForm">
+                            <p id="duplicateWarning" style="color: red; display: none;">
+                                This English phrase already exists in your Translation Library.
+                            </p>
+
+                            <div class="form-field">
+                                <label for="english">English</label>
+                                <input
+                                    type="text"
+                                    id="english"
+                                    placeholder="Enter English phrase"
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="spanish">Spanish</label>
+                                <input
+                                    type="text"
+                                    id="spanish"
+                                    placeholder="Enter Spanish translation"
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="indonesian">Indonesian</label>
+                                <input
+                                    type="text"
+                                    id="indonesian"
+                                    placeholder="Enter Indonesian translation"
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="category">Category</label>
+                                <input
+                                    type="text"
+                                    id="category"
+                                    placeholder="e.g. Greetings"
+                                >
+                            </div>
+
+                            <button type="submit">Add Phrase <span>+</span></button>
+                        </form>
+                    </aside>
+
+                    <!-- TRANSLATION LIBRARY PANEL -->
+                    <section class="library-panel" id="library">
+                        <div class="library-heading">
+                            <div class="panel-heading">
+                                <span class="section-number">02 / COLLECTION</span>
+                                <h2>My Translation Library</h2>
+                                <p>Browse and manage your saved translations.</p>
+                            </div>
+
+                            <span class="library-code">EN / ES / ID</span>
+                        </div>
+
+                        <div class="library-controls">
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search English phrases..."
+                            >
+
+                            <select id="categoryFilter">
+                                <option value="">All Categories</option>
+                            </select>
+                        </div>
+
+                        <div class="list-heading">
+                            <span>TRANSLATION ENTRIES</span>
+                            <span>MANAGE</span>
+                        </div>
+
+                        <div id="translationList"></div>
+                    </section>
+
+                </div>
+
+                <!-- FOOTER -->
+                <footer class="app-footer">
+                    <span>LINGUA WORKSPACE</span>
+                    <span>PERSONAL LANGUAGE COLLECTION</span>
+                </footer>
+
+            </main>
+        </div>
+
+
+    <!-- DELETE CONFIRMATION MODAL -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal-box">
+
+            <div class="modal-heading">
+                <h2>Delete translation?</h2>
+                <p>
+                    Are you sure you want to delete this translation?
+                    This action cannot be undone.
+                </p>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" id="cancelDelete">
+                    Cancel
+                </button>
+
+                <button type="button" id="confirmDelete">
+                    Delete
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+        <script src="script.js"></script>
+    </body>
+</html>
